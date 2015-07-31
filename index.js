@@ -11,7 +11,7 @@ var mixins = {
         appMeta: 'apple-smart-itunes-app',
         iconRels: ['apple-touch-icon-precomposed', 'apple-touch-icon'],
         getStoreLink: function() {
-            return 'https://itunes.apple.com/' + this.options.appStoreLanguage + '/app/id' + this.appId;
+            return 'https://geo.itunes.apple.com/app/apple-store/' + this.appId;
         }
     },
     android: {
