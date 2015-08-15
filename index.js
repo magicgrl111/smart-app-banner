@@ -11,7 +11,7 @@ var mixins = {
         appMeta: 'apple-smart-itunes-app',
         iconRels: ['apple-touch-icon-precomposed', 'apple-touch-icon'],
         getStoreLink: function() {
-            return 'https://itunes.apple.com/' + this.options.appStoreLanguage + '/app/id' + this.appId;
+            return 'https://geo.itunes.apple.com/app/apple-store/id' + this.appId;
         }
     },
     android: {
@@ -124,14 +124,14 @@ SmartBanner.prototype = {
         this.hide();
         cookie.set('smartbanner-closed', 'true', {
             path: '/',
-            expires: +new Date() + this.options.daysHidden * 1000 * 60 * 60 * 24
+            expires: new Date(+new Date() + this.options.daysHidden * 1000 * 60 * 60 * 24).toUTCString()
         });
     },
     install: function() {
         this.hide();
         cookie.set('smartbanner-installed', 'true', {
             path: '/',
-            expires: +new Date() + this.options.daysReminder * 1000 * 60 * 60 * 24
+            expires: new Date(+new Date() + this.options.daysReminder * 1000 * 60 * 60 * 24).toUTCString()
         });
     },
     parseAppId: function() {
